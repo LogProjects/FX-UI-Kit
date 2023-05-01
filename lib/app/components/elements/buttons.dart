@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../components/buttons/hover_button.dart';
 import '../../../components/buttons/primary_button.dart';
+import '../../../components/buttons/secondary_button.dart';
 import '../component_list.dart';
 
 class Buttons extends StatelessWidget {
@@ -20,15 +21,11 @@ class Buttons extends StatelessWidget {
           onPressed: () {  },
           child: const Text("Button"),
         ),
+        SecondaryButton(
+          onPressed: () { },
+          child: const Text("Secondary"),
+        ),
         const LoadablePrimaryButtonPlayground(),
-        PrimaryButton(
-          onPressed: () {  },
-          child: const Text("Button"),
-        ),
-        PrimaryButton(
-          onPressed: () {  },
-          child: const Text("Button"),
-        ),
       ],
     );
   }
