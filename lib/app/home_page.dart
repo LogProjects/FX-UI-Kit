@@ -3,6 +3,7 @@ import 'package:f_kit_x/app/sidebar/app_drawer.dart';
 import 'package:f_kit_x/app/sidebar/side_drawer.dart';
 import 'package:flutter/material.dart';
 
+import '../components/animations/i_fade_transition.dart';
 import '../resource/theme_color.dart';
 
 class HomePage extends StatefulWidget {
@@ -34,7 +35,11 @@ class _HomePageState extends State<HomePage> {
         children: [
           if (isWideScreen) SideDrawer(onSelect: _setElement),
           if (isWideScreen) const VerticalDivider(),
-          Expanded(child: _selectedElement.componentList),
+          Expanded(
+            child: IFadeTransition(
+              child: _selectedElement.componentList,
+            ),
+          )
         ],
       ),
     );
