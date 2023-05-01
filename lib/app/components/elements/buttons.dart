@@ -1,6 +1,7 @@
 import 'package:f_kit_x/app/components/playgrounds/loadable_primary_button_playground.dart';
 import 'package:flutter/material.dart';
 
+import '../../../components/buttons/bordered_button.dart';
 import '../../../components/buttons/hover_button.dart';
 import '../../../components/buttons/primary_button.dart';
 import '../../../components/buttons/secondary_button.dart';
@@ -14,16 +15,20 @@ class Buttons extends StatelessWidget {
     return ComponentList(
       components: [
         PrimaryButton(
-          onPressed: () {  },
+          onPressed: () { },
           child: const Text("Button"),
         ),
         HoverButton(
-          onPressed: () {  },
+          onPressed: () { },
           child: const Text("Button"),
         ),
         SecondaryButton(
           onPressed: () { },
           child: const Text("Secondary"),
+        ),
+        BorderedButton(
+          onPressed: () { },
+          child: const Text("Outline")
         ),
         const LoadablePrimaryButtonPlayground(),
       ],
