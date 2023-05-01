@@ -1,22 +1,22 @@
+import 'package:f_kit_x/resource/theme_color.dart';
 import 'package:flutter/material.dart';
 
-import '../../resource/theme_color.dart';
-
-class HoverButton extends StatelessWidget {
+class SecondaryButton extends StatelessWidget {
   final void Function()? onPressed;
   final Widget? child;
 
-  const HoverButton({
+  const SecondaryButton({
     Key? key,
-    this.onPressed,
+    required this.onPressed,
     this.child,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
+    return ElevatedButton(
       onPressed: onPressed,
-      style: TextButton.styleFrom(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: ThemeColor.Secondary,
         foregroundColor: ThemeColor.Primary,
       ),
       child: Padding(
