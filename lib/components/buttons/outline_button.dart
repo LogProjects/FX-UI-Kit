@@ -14,11 +14,14 @@ class OutlineButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
+      onPressed: onPressed,
       style: OutlinedButton.styleFrom(
         foregroundColor: ThemeColor.Primary,
       ),
-      onPressed: onPressed,
-      child: child,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
+        child: child,
+      ),
     );
   }
 }
