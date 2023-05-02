@@ -16,6 +16,8 @@ abstract class ThemeColor {
   static const Color ButtonPrimaryForeground = Color.fromRGBO(248, 250, 252, 1.0);
   
   static const Color Secondary = Color.fromRGBO(241, 245, 249, 1);
+  static const Color Destructive = Color.fromRGBO(244, 3, 5, 1.0);
+
 
   static const Color Outline = Color.fromRGBO(255, 255, 255, 1.0);
 }

@@ -1,4 +1,5 @@
 import 'package:f_kit_x/app/components/playgrounds/loadable_primary_button_playground.dart';
+import 'package:f_kit_x/components/buttons/destructive_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/buttons/bordered_button.dart';
@@ -26,6 +27,10 @@ class Buttons extends StatelessWidget {
           onPressed: () { },
           child: const Text("Secondary"),
         ),
+        DestructiveButton(
+            onPressed: () { },
+          child: const Text("Destructive"),
+        )
         BorderedButton(
           onPressed: () { },
           child: const Text("Outline")
