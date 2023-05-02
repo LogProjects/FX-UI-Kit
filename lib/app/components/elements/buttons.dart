@@ -29,7 +29,7 @@ class Buttons extends StatelessWidget {
         DestructiveButton(
             onPressed: () { },
           child: const Text("Destructive"),
-        )
+        ),
         const LoadablePrimaryButtonPlayground(),
       ],
     );
