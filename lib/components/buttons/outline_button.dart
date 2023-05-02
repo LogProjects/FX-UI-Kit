@@ -1,11 +1,11 @@
 import 'package:f_kit_x/resource/theme_color.dart';
 import 'package:flutter/material.dart';
 
-class BorderedButton extends StatelessWidget {
+class OutlineButton extends StatelessWidget {
   final void Function()? onPressed;
   final Widget? child;
 
-  const BorderedButton({
+  const OutlineButton({
     Key? key,
     required this.onPressed,
     this.child,
@@ -13,16 +13,13 @@ class BorderedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: ThemeColor.Outline,
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(
+        backgroundColor: ThemeColor.White,
         foregroundColor: ThemeColor.Primary,
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 4.0),
-        child: child,
-      ),
+      onPressed: onPressed,
+      child: child,
     );
   }
 }
