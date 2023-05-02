@@ -2,6 +2,7 @@ import 'package:f_kit_x/app/components/playgrounds/loadable_primary_button_playg
 import 'package:flutter/material.dart';
 
 import '../../../components/buttons/hover_button.dart';
+import '../../../components/buttons/link_button.dart';
 import '../../../components/buttons/primary_button.dart';
 import '../../../components/buttons/secondary_button.dart';
 import '../component_list.dart';
@@ -24,6 +25,10 @@ class Buttons extends StatelessWidget {
         SecondaryButton(
           onPressed: () { },
           child: const Text("Secondary"),
+        ),
+        const LinkButton(
+          linkURL: "https://www.youtube.com/",
+          buttonText: "Link",
         ),
         const LoadablePrimaryButtonPlayground(),
       ],
