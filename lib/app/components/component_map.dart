@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
 
 import 'package:f_kit_x/app/components/elements/buttons.dart';
+import 'package:f_kit_x/app/components/elements/checkbox_components.dart';
 import 'package:flutter/material.dart';
 
 class UiElement {
@@ -14,10 +15,12 @@ class UiElement {
 }
 
 abstract class Elements {
-  static const String BUTTONS = "Buttons";
+  static const String BUTTON = "Button";
+  static const String CHECKBOX = "Checkbox";
 
   static List<UiElement> ComponentList = [
-    const UiElement(name: BUTTONS, componentList: Buttons()),
+    const UiElement(name: BUTTON, componentList: Buttons()),
+    const UiElement(name: CHECKBOX, componentList: CheckboxComponents()),
     UiElement(name: "lightGreenAccent", componentList: Container(color: Colors.lightGreenAccent)),
     UiElement(name: "lightGreen", componentList: Container(color: Colors.lightGreen)),
     UiElement(name: "amberAccent", componentList: Container(color: Colors.amberAccent)),
@@ -31,5 +34,3 @@ abstract class Elements {
     // Colors are for test, temporary
   ];
 }
-
-
