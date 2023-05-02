@@ -9,7 +9,7 @@ class CheckboxDemo extends StatefulWidget {
 
   const CheckboxDemo({
     Key? key,
-    required this.isChecked,
+    this.isChecked = false, // Initialize isChecked with default value of false
     required this.label,
     this.onChanged,
   }) : super(key: key);
@@ -19,7 +19,7 @@ class CheckboxDemo extends StatefulWidget {
 }
 
 class _CheckboxDemoState extends State<CheckboxDemo> {
-  late bool isChecked;
+  bool? isChecked;
 
   @override
   void initState() {

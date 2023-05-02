@@ -10,7 +10,7 @@ class Checkboxes extends StatefulWidget {
 }
 
 class _CheckboxesState extends State<Checkboxes> {
-  late bool isChecked = false;
+  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {

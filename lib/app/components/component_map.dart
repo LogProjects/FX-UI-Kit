@@ -21,26 +21,15 @@ abstract class Elements {
   static List<UiElement> ComponentList = [
     const UiElement(name: BUTTONS, componentList: Buttons()),
     const UiElement(name: CHECKBOXES, componentList: Checkboxes()),
-    UiElement(
-        name: "lightGreenAccent",
-        componentList: Container(color: Colors.lightGreenAccent)),
-    UiElement(
-        name: "lightGreen", componentList: Container(color: Colors.lightGreen)),
-    UiElement(
-        name: "amberAccent",
-        componentList: Container(color: Colors.amberAccent)),
-    UiElement(
-        name: "amberAccent", componentList: Container(color: Colors.amber)),
-    UiElement(
-        name: "redAccent", componentList: Container(color: Colors.redAccent)),
+    UiElement(name: "lightGreenAccent", componentList: Container(color: Colors.lightGreenAccent)),
+    UiElement(name: "lightGreen", componentList: Container(color: Colors.lightGreen)),
+    UiElement(name: "amberAccent", componentList: Container(color: Colors.amberAccent)),
+    UiElement(name: "amberAccent", componentList: Container(color: Colors.amber)),
+    UiElement(name: "redAccent", componentList: Container(color: Colors.redAccent)),
     UiElement(name: "red", componentList: Container(color: Colors.red)),
-    UiElement(
-        name: "indigoAccent",
-        componentList: Container(color: Colors.indigoAccent)),
+    UiElement(name: "indigoAccent", componentList: Container(color: Colors.indigoAccent)),
     UiElement(name: "indigo", componentList: Container(color: Colors.indigo)),
-    UiElement(
-        name: "orangeAccent",
-        componentList: Container(color: Colors.orangeAccent)),
+    UiElement(name: "orangeAccent", componentList: Container(color: Colors.orangeAccent)),
     UiElement(name: "orange", componentList: Container(color: Colors.orange)),
     // Colors are for test, temporary
   ];
