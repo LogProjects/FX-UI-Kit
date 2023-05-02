@@ -30,10 +30,10 @@ class Buttons extends StatelessWidget {
         DestructiveButton(
             onPressed: () { },
           child: const Text("Destructive"),
-        )
+        ),
         BorderedButton(
           onPressed: () { },
-          child: const Text("Outline")
+          child: const Text("Outline"),
         ),
         const LoadablePrimaryButtonPlayground(),
       ],
