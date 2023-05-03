@@ -4,6 +4,8 @@ import 'package:f_kit_x/app/components/elements/buttons.dart';
 import 'package:f_kit_x/app/components/elements/checkbox_components.dart';
 import 'package:flutter/material.dart';
 
+import 'elements/textfields.dart';
+
 class UiElement {
   final String name;
   final Widget componentList;
@@ -17,11 +19,12 @@ class UiElement {
 abstract class Elements {
   static const String BUTTON = "Button";
   static const String CHECKBOX = "Checkbox";
+  static const String TEXTFIELD = "TextField";
 
   static List<UiElement> ComponentList = [
     const UiElement(name: BUTTON, componentList: Buttons()),
     const UiElement(name: CHECKBOX, componentList: CheckboxComponents()),
-    UiElement(name: "lightGreenAccent", componentList: Container(color: Colors.lightGreenAccent)),
+    const UiElement(name: TEXTFIELD, componentList: TextFields()),
     UiElement(name: "lightGreen", componentList: Container(color: Colors.lightGreen)),
     UiElement(name: "amberAccent", componentList: Container(color: Colors.amberAccent)),
     UiElement(name: "amberAccent", componentList: Container(color: Colors.amber)),
