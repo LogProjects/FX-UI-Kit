@@ -1,5 +1,6 @@
 import 'package:f_kit_x/app/components/playgrounds/loadable_primary_button_playground.dart';
 import 'package:f_kit_x/components/buttons/destructive_button.dart';
+import 'package:f_kit_x/components/buttons/link_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/buttons/outline_button.dart';
@@ -36,6 +37,10 @@ class Buttons extends StatelessWidget {
           child: const Text("Outline"),
         ),
         const LoadablePrimaryButtonPlayground(),
+        LinkButton(
+          onPressed: () { },
+          label: 'Link',
+        ),
       ],
     );
   }
