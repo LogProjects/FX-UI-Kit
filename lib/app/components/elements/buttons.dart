@@ -2,6 +2,7 @@ import 'package:f_kit_x/app/components/playgrounds/loadable_primary_button_playg
 import 'package:f_kit_x/components/buttons/destructive_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../../components/buttons/outline_button.dart';
 import '../../../components/buttons/hover_button.dart';
 import '../../../components/buttons/primary_button.dart';
 import '../../../components/buttons/secondary_button.dart';
@@ -15,11 +16,11 @@ class Buttons extends StatelessWidget {
     return ComponentList(
       components: [
         PrimaryButton(
-          onPressed: () {  },
+          onPressed: () { },
           child: const Text("Button"),
         ),
         HoverButton(
-          onPressed: () {  },
+          onPressed: () { },
           child: const Text("Button"),
         ),
         SecondaryButton(
@@ -29,7 +30,11 @@ class Buttons extends StatelessWidget {
         DestructiveButton(
             onPressed: () { },
           child: const Text("Destructive"),
-        )
+        ),
+        OutlineButton(
+          onPressed: () { },
+          child: const Text("Outline"),
+        ),
         const LoadablePrimaryButtonPlayground(),
       ],
     );
