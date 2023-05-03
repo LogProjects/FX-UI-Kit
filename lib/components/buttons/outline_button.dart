@@ -19,7 +19,7 @@ class OutlineButton extends StatelessWidget {
         foregroundColor: ThemeColor.Primary,
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
+        padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 4.0),
         child: child,
       ),
     );
