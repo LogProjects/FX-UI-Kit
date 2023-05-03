@@ -17,5 +17,5 @@ abstract class ThemeColor {
   
   static const Color Secondary = Color.fromRGBO(241, 245, 249, 1);
   static const Color Destructive = Color.fromRGBO(244, 3, 5, 1.0);
-  
+
 }
