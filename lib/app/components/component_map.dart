@@ -24,7 +24,7 @@ abstract class Elements {
   static List<UiElement> ComponentList = [
     const UiElement(name: BUTTON, componentList: Buttons()),
     const UiElement(name: CHECKBOX, componentList: CheckboxComponents()),
-    const UiElement(name: TEXT_FIELD, componentList: TextFieldComponents()),
+    UiElement(name: TEXT_FIELD, componentList: TextFieldComponents()),
     UiElement(name: "lightGreen", componentList: Container(color: Colors.lightGreen)),
     UiElement(name: "amberAccent", componentList: Container(color: Colors.amberAccent)),
     UiElement(name: "amberAccent", componentList: Container(color: Colors.amber)),
