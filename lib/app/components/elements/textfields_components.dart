@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../components/textfields/email_textfield.dart';
 import '../../../components/textfields/password_textfield.dart';
 
-class TextFields extends StatelessWidget {
-  const TextFields({Key? key}) : super(key: key);
+class TextFieldComponents extends StatelessWidget {
+  const TextFieldComponents({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
