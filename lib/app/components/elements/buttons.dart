@@ -29,7 +29,7 @@ class Buttons extends StatelessWidget {
           child: const Text("Secondary"),
         ),
         DestructiveButton(
-            onPressed: () { },
+          onPressed: () { },
           child: const Text("Destructive"),
         ),
         OutlineButton(

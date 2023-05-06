@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 
 class LinkButton extends StatefulWidget {
   final void Function()? onPressed;
-  final void Function(bool)? onHover;
   final String label;
 
   const LinkButton({
     Key? key,
     this.onPressed,
-    this.onHover,
     required this.label,
   }) : super(key: key);
 
@@ -19,20 +17,19 @@ class LinkButton extends StatefulWidget {
 class _LinkButtonState extends State<LinkButton> {
   bool isHovering = false;
 
+  void _setHover(bool hovering) => setState(() => isHovering = hovering);
+
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (event) => setState(() => isHovering = true),
-      onExit: (event) => setState(() => isHovering = false),
+      onEnter: (_) => _setHover(true),
+      onExit: (_) => _setHover(false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: widget.onPressed,
         child: Text(
           widget.label,
-          style: TextStyle(
-            fontSize: 16,
-            decoration: isHovering ? TextDecoration.underline : null,
-          ),
+          style: TextStyle(decoration: isHovering ? TextDecoration.underline : null),
         ),
       ),
     );
