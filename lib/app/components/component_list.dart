@@ -14,7 +14,7 @@ class ComponentList extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            height: 200,
+            height: 350,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               border: Border.all(
