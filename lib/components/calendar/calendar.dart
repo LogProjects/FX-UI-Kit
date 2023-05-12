@@ -1,142 +1,102 @@
+import 'dart:math';
+
 import 'package:f_kit_x/resource/theme_color.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
 
 class Calendar extends StatefulWidget {
-  const Calendar({Key? key}) : super(key: key);
+  final bool enableBorder;
+
+  const Calendar({
+    Key? key,
+    this.enableBorder = true,
+  }) : super(key: key);
 
   @override
   State<Calendar> createState() => _CalendarState();
 }
 
 class _CalendarState extends State<Calendar> {
-  final CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _selectedDay = DateTime.now();
   DateTime _focusedDay = DateTime.now();
 
+  void _onDateSelected(selectedDay, focusedDay) => setState(() {
+    _selectedDay = selectedDay;
+    _focusedDay = focusedDay;
+  });
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 320,
-      width: 280,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: ThemeColor.Grey,
-            width: 0.5,
-          ),
-        ),
-        child: MouseRegion(
-          cursor: SystemMouseCursors.click,
-          onHover: (event) {},
-          child: TableCalendar(
-            firstDay: DateTime.utc(2020, 01, 01),
-            lastDay: DateTime.utc(2030, 12, 31),
-            focusedDay: _focusedDay,
-            calendarFormat: _calendarFormat,
-            rowHeight: 38,
-            daysOfWeekHeight: 30,
-            availableCalendarFormats: const {
-              CalendarFormat.month: 'Month',
-            },
-            selectedDayPredicate: (day) {
-              return isSameDay(_selectedDay, day);
-            },
-            onDaySelected: (selectedDay, focusedDay) {
-              setState(() {
-                _selectedDay = selectedDay;
-                _focusedDay = focusedDay;
-              });
-            },
-            onPageChanged: (focusedDay) {
-              _focusedDay = focusedDay;
-            },
-            headerStyle: HeaderStyle(
-              formatButtonVisible: false,
-              titleCentered: true,
-              titleTextStyle: const TextStyle(
-                  fontSize: 14, height: 1.2, fontWeight: FontWeight.bold),
-              leftChevronIcon: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  border: Border.all(
-                    color: ThemeColor.Grey,
-                    width: 0.5,
-                  ),
-                ),
-                child: const Icon(
-                  Icons.chevron_left,
-                  color: ThemeColor.DarkGrey,
-                ),
+    return AspectRatio(
+      aspectRatio: 9 / 10,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final width = constraints.maxWidth;
+          final height = constraints.maxHeight;
+          return Container(
+            decoration: widget.enableBorder ? BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: ThemeColor.DarkGrey, width: 0.5),
+            ) : null,
+            child: TableCalendar(
+              shouldFillViewport: true,
+              firstDay: DateTime.now(),
+              lastDay: DateTime.now().add(const Duration(days: 365)),
+              focusedDay: _focusedDay,
+              calendarFormat: CalendarFormat.month,
+              daysOfWeekHeight: height * 0.1,
+              startingDayOfWeek: StartingDayOfWeek.monday,
+              selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+              onDaySelected: _onDateSelected,
+              headerStyle: _headerStyle(height, width),
+              daysOfWeekStyle: DaysOfWeekStyle(dowTextFormatter: _dowFormatter),
+              calendarStyle: CalendarStyle(
+                todayDecoration: _createDecoration(ThemeColor.Primary.withOpacity(0.3)),
+                selectedDecoration: _createDecoration(ThemeColor.Primary),
+                defaultDecoration: BoxDecoration(shape: BoxShape.rectangle, borderRadius: BorderRadius.circular(4)),
+                outsideTextStyle: const TextStyle(color: ThemeColor.DarkGrey),
+                disabledTextStyle: const TextStyle(color: ThemeColor.Grey),
+                tablePadding: EdgeInsets.symmetric(horizontal: width * 0.01),
               ),
-              rightChevronIcon: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  border: Border.all(
-                    color: ThemeColor.Grey,
-                    width: 0.5,
-                  ),
-                ),
-                child:
-                    const Icon(Icons.chevron_right, color: ThemeColor.DarkGrey),
-              ),
-              leftChevronMargin: const EdgeInsets.all(4),
-              rightChevronMargin: const EdgeInsets.all(4),
-              leftChevronPadding: const EdgeInsets.all(4),
-              rightChevronPadding: const EdgeInsets.all(4),
             ),
-            daysOfWeekStyle: DaysOfWeekStyle(
-              weekdayStyle: const TextStyle(
-                  fontSize: 14, height: 1.2, color: ThemeColor.DarkGrey),
-              weekendStyle: const TextStyle(
-                  fontSize: 14, height: 1.2, color: ThemeColor.DarkGrey),
-              dowTextFormatter: (date, locale) => DateFormat.E(locale)
-                  .format(date)
-                  .substring(0, 2)
-                  .toUpperCase(),
-            ),
-            calendarStyle: CalendarStyle(
-              todayDecoration: ShapeDecoration.fromBoxDecoration(
-                BoxDecoration(
-                  color: ThemeColor.Grey,
-                  shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(4),
-                ),
-              ),
-              selectedDecoration: ShapeDecoration.fromBoxDecoration(
-                BoxDecoration(
-                  color: ThemeColor.Primary,
-                  shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(4),
-                ),
-              ),
-              defaultTextStyle: const TextStyle(fontSize: 14, height: 1.5),
-              weekendTextStyle: const TextStyle(fontSize: 14, height: 1.2),
-              outsideTextStyle: const TextStyle(
-                  fontSize: 14, height: 1.2, color: ThemeColor.DarkGrey),
-              todayTextStyle: const TextStyle(
-                  fontSize: 14, color: ThemeColor.Black, height: 1.2),
-              selectedTextStyle: const TextStyle(
-                  fontSize: 14, color: ThemeColor.White, height: 1.2),
-              disabledTextStyle: const TextStyle(
-                  fontSize: 14, color: ThemeColor.Black, height: 1.2),
-            ),
-            calendarBuilders: CalendarBuilders(
-              weekNumberBuilder: (BuildContext context, int weekNumber) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0),
-                  child: Text(
-                    weekNumber.toString(),
-                    style: const TextStyle(fontSize: 14, height: 1.2),
-                  ),
-                );
-              },
-            ),
-          ),
-        ),
+          );
+        }
       ),
     );
   }
+
+  String _dowFormatter(date, locale) => DateFormat.E(locale).format(date).substring(0, 2).toUpperCase();
+
+  HeaderStyle _headerStyle(maxHeight, maxWidth) => HeaderStyle(
+        formatButtonVisible: false,
+        titleCentered: true,
+        titleTextStyle: TextStyle(fontSize: min(maxWidth * 0.05, 24), fontWeight: FontWeight.bold),
+        headerPadding: EdgeInsets.zero,
+        leftChevronIcon: _icon(Icons.chevron_left_rounded, maxWidth * 0.05),
+        rightChevronIcon: _icon(Icons.chevron_right_rounded, maxWidth * 0.05),
+        leftChevronMargin: EdgeInsets.symmetric(vertical: maxHeight * 0.03, horizontal: maxWidth * 0.04),
+        rightChevronMargin: EdgeInsets.symmetric(vertical: maxHeight * 0.03, horizontal: maxWidth * 0.04),
+        leftChevronPadding: EdgeInsets.zero,
+        rightChevronPadding: EdgeInsets.zero,
+      );
+
+  Widget _icon(IconData icon, double size) => Container(
+        height: min(size * 1.5, 60),
+        width: min(size * 1.5, 60),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(4),
+          border: Border.all(color: ThemeColor.Grey, width: 0.5),
+        ),
+        child: Icon(icon, color: ThemeColor.DarkGrey, size: min(size, 40)),
+      );
+
+  Decoration _createDecoration(Color color) =>
+      ShapeDecoration.fromBoxDecoration(
+        BoxDecoration(
+          color: color,
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.circular(4),
+        ),
+      );
 }
