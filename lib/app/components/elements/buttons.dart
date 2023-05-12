@@ -1,3 +1,4 @@
+import 'package:f_kit_x/app/components/component_display.dart';
 import 'package:f_kit_x/app/components/playgrounds/loadable_primary_button_playground.dart';
 import 'package:f_kit_x/components/buttons/destructive_button.dart';
 import 'package:f_kit_x/components/buttons/link_button.dart';
@@ -16,30 +17,44 @@ class Buttons extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentList(
       components: [
-        PrimaryButton(
-          onPressed: () { },
-          child: const Text("Button"),
+        ComponentDisplay(
+          component: PrimaryButton(
+            onPressed: () {},
+            child: const Text("Button"),
+          ),
         ),
-        HoverButton(
-          onPressed: () { },
-          child: const Text("Button"),
+        ComponentDisplay(
+          component: HoverButton(
+            onPressed: () {},
+            child: const Text("Button"),
+          ),
         ),
-        SecondaryButton(
-          onPressed: () { },
-          child: const Text("Secondary"),
+        ComponentDisplay(
+          component: SecondaryButton(
+            onPressed: () {},
+            child: const Text("Secondary"),
+          ),
         ),
-        DestructiveButton(
-          onPressed: () { },
-          child: const Text("Destructive"),
+        ComponentDisplay(
+          component: DestructiveButton(
+            onPressed: () {},
+            child: const Text("Destructive"),
+          ),
         ),
-        OutlineButton(
-          onPressed: () { },
-          child: const Text("Outline"),
+        ComponentDisplay(
+          component: OutlineButton(
+            onPressed: () {},
+            child: const Text("Outline"),
+          ),
         ),
-        const LoadablePrimaryButtonPlayground(),
-        LinkButton(
-          onPressed: () { },
-          label: 'Link',
+        ComponentDisplay(
+          component: const LoadablePrimaryButtonPlayground(),
+        ),
+        ComponentDisplay(
+          component: LinkButton(
+            onPressed: () {},
+            label: 'Link',
+          ),
         ),
       ],
     );
