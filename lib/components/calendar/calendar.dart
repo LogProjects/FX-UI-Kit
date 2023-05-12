@@ -97,25 +97,31 @@ class _CalendarState extends State<Calendar> {
                   .substring(0, 2)
                   .toUpperCase(),
             ),
-            calendarStyle: const CalendarStyle(
-              todayDecoration: BoxDecoration(
-                color: ThemeColor.Grey,
-                shape: BoxShape.rectangle,
+            calendarStyle: CalendarStyle(
+              todayDecoration: ShapeDecoration.fromBoxDecoration(
+                BoxDecoration(
+                  color: ThemeColor.Grey,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(4),
+                ),
               ),
-              selectedDecoration: BoxDecoration(
-                color: ThemeColor.Primary,
-                shape: BoxShape.rectangle,
+              selectedDecoration: ShapeDecoration.fromBoxDecoration(
+                BoxDecoration(
+                  color: ThemeColor.Primary,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(4),
+                ),
               ),
-              defaultTextStyle: TextStyle(fontSize: 14, height: 1.5),
-              weekendTextStyle: TextStyle(fontSize: 14, height: 1.2),
-              outsideTextStyle: TextStyle(
+              defaultTextStyle: const TextStyle(fontSize: 14, height: 1.5),
+              weekendTextStyle: const TextStyle(fontSize: 14, height: 1.2),
+              outsideTextStyle: const TextStyle(
                   fontSize: 14, height: 1.2, color: ThemeColor.DarkGrey),
-              todayTextStyle:
-                  TextStyle(fontSize: 14, color: ThemeColor.Black, height: 1.2),
-              selectedTextStyle:
-                  TextStyle(fontSize: 14, color: ThemeColor.White, height: 1.2),
-              disabledTextStyle:
-                  TextStyle(fontSize: 14, color: ThemeColor.Black, height: 1.2),
+              todayTextStyle: const TextStyle(
+                  fontSize: 14, color: ThemeColor.Black, height: 1.2),
+              selectedTextStyle: const TextStyle(
+                  fontSize: 14, color: ThemeColor.White, height: 1.2),
+              disabledTextStyle: const TextStyle(
+                  fontSize: 14, color: ThemeColor.Black, height: 1.2),
             ),
             calendarBuilders: CalendarBuilders(
               weekNumberBuilder: (BuildContext context, int weekNumber) {
