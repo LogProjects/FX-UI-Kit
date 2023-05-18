@@ -59,6 +59,7 @@ class _CalendarState extends State<Calendar> {
               todayDecoration: _createDecoration(ThemeColor.Grey),
               selectedDecoration: _createDecoration(ThemeColor.Primary),
                 defaultDecoration: BoxDecoration(shape: BoxShape.rectangle, borderRadius: BorderRadius.circular(4)),
+              todayTextStyle: const TextStyle(color: ThemeColor.DarkGrey),  
               outsideTextStyle: const TextStyle(color: ThemeColor.DarkGrey),
               disabledTextStyle: const TextStyle(color: ThemeColor.Grey),
               tablePadding: EdgeInsets.symmetric(horizontal: width * 0.01),
