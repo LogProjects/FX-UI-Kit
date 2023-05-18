@@ -12,16 +12,18 @@ class CalendarComponents extends StatelessWidget {
     return ComponentList(
       components: [
         ComponentDisplay(
-          component: const Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Calendar(),
+          component: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Calendar(
+              firstDay: DateTime(2023, 1, 1), lastDay: DateTime(2024, 12, 31)),
           ),
         ),
         ComponentDisplay(
           height: 600,
-          component: const Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Calendar(),
+          component: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Calendar(
+              firstDay: DateTime.now(), lastDay: DateTime(2023, 12, 31)),
           ),
         ),
         ComponentDisplay(
@@ -29,7 +31,9 @@ class CalendarComponents extends StatelessWidget {
           component: PrimaryButton(
               onPressed: () {
                 showDialog(context: context, builder: (context) {
-                  return const Material(child: Calendar(enableBorder: false));
+                  return Material(child: Calendar(
+                    enableBorder: false, 
+                    firstDay: DateTime(2023, 1, 1), lastDay: DateTime(2023, 12, 1),));
                 });
               },
             child: const Text("Open Calendar"),

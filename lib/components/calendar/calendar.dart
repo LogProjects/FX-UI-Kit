@@ -7,10 +7,14 @@ import 'package:intl/intl.dart';
 
 class Calendar extends StatefulWidget {
   final bool enableBorder;
+  final DateTime firstDay;
+  final DateTime lastDay;
 
   const Calendar({
     Key? key,
     this.enableBorder = true,
+    required this.firstDay,
+    required this.lastDay,
   }) : super(key: key);
 
   @override
@@ -22,45 +26,45 @@ class _CalendarState extends State<Calendar> {
   DateTime _focusedDay = DateTime.now();
 
   void _onDateSelected(selectedDay, focusedDay) => setState(() {
-    _selectedDay = selectedDay;
-    _focusedDay = focusedDay;
-  });
+        _selectedDay = selectedDay;
+        _focusedDay = focusedDay;
+      });
 
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 9 / 10,
+      aspectRatio: 1,
       child: LayoutBuilder(
         builder: (context, constraints) {
-          final width = constraints.maxWidth;
-          final height = constraints.maxHeight;
-          return Container(
+        final width = constraints.maxWidth;
+        final height = constraints.maxHeight;
+        return Container(
             decoration: widget.enableBorder ? BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: ThemeColor.DarkGrey, width: 0.5),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: ThemeColor.DarkGrey, width: 0.5),
             ) : null,
-            child: TableCalendar(
-              shouldFillViewport: true,
-              firstDay: DateTime.now(),
-              lastDay: DateTime.now().add(const Duration(days: 365)),
-              focusedDay: _focusedDay,
-              calendarFormat: CalendarFormat.month,
-              daysOfWeekHeight: height * 0.1,
-              startingDayOfWeek: StartingDayOfWeek.monday,
-              selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-              onDaySelected: _onDateSelected,
-              headerStyle: _headerStyle(height, width),
-              daysOfWeekStyle: DaysOfWeekStyle(dowTextFormatter: _dowFormatter),
-              calendarStyle: CalendarStyle(
-                todayDecoration: _createDecoration(ThemeColor.Primary.withOpacity(0.3)),
-                selectedDecoration: _createDecoration(ThemeColor.Primary),
+          child: TableCalendar(
+            shouldFillViewport: true,
+            firstDay: widget.firstDay,
+            lastDay: widget.lastDay,
+            focusedDay: _focusedDay,
+            calendarFormat: CalendarFormat.month,
+            daysOfWeekHeight: height * 0.1,
+            startingDayOfWeek: StartingDayOfWeek.monday,
+            selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+            onDaySelected: _onDateSelected,
+            headerStyle: _headerStyle(height, width),
+            daysOfWeekStyle: DaysOfWeekStyle(dowTextFormatter: _dowFormatter),
+            calendarStyle: CalendarStyle(
+              todayDecoration: _createDecoration(ThemeColor.Grey),
+              selectedDecoration: _createDecoration(ThemeColor.Primary),
                 defaultDecoration: BoxDecoration(shape: BoxShape.rectangle, borderRadius: BorderRadius.circular(4)),
-                outsideTextStyle: const TextStyle(color: ThemeColor.DarkGrey),
-                disabledTextStyle: const TextStyle(color: ThemeColor.Grey),
-                tablePadding: EdgeInsets.symmetric(horizontal: width * 0.01),
-              ),
+              outsideTextStyle: const TextStyle(color: ThemeColor.DarkGrey),
+              disabledTextStyle: const TextStyle(color: ThemeColor.Grey),
+              tablePadding: EdgeInsets.symmetric(horizontal: width * 0.01),
             ),
-          );
+          ),
+        );
         }
       ),
     );
