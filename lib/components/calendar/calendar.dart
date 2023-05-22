@@ -7,14 +7,14 @@ import 'package:intl/intl.dart';
 
 class Calendar extends StatefulWidget {
   final bool enableBorder;
-  final DateTime firstDay;
-  final DateTime lastDay;
+  final DateTime? firstDay;
+  final DateTime? lastDay;
 
   const Calendar({
     Key? key,
     this.enableBorder = true,
-    required this.firstDay,
-    required this.lastDay,
+    this.firstDay,
+    this.lastDay,
   }) : super(key: key);
 
   @override
@@ -32,8 +32,9 @@ class _CalendarState extends State<Calendar> {
 
   @override
   Widget build(BuildContext context) {
+    final today = DateTime.now();
     return AspectRatio(
-      aspectRatio: 1,
+      aspectRatio: 9 / 10,
       child: LayoutBuilder(
         builder: (context, constraints) {
         final width = constraints.maxWidth;
@@ -45,8 +46,8 @@ class _CalendarState extends State<Calendar> {
             ) : null,
           child: TableCalendar(
             shouldFillViewport: true,
-            firstDay: widget.firstDay,
-            lastDay: widget.lastDay,
+            firstDay: widget.firstDay ?? today.subtract(const Duration(days: 60)),
+            lastDay: widget.lastDay ?? today.add(const Duration(days: 60)),
             focusedDay: _focusedDay,
             calendarFormat: CalendarFormat.month,
             daysOfWeekHeight: height * 0.1,
