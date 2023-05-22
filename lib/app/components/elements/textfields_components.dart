@@ -1,3 +1,4 @@
+import 'package:f_kit_x/app/components/component_display.dart';
 import 'package:f_kit_x/app/components/component_list.dart';
 import 'package:f_kit_x/components/textfields/email_textfield.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +15,8 @@ class TextFieldComponents extends StatelessWidget {
     final fieldWidth = MediaQuery.of(context).size.width / 3;
     return ComponentList(
       components: [
-        EmailTextField(controller: controller1, width: fieldWidth),
-        PasswordTextField(controller: controller2, width: fieldWidth),
+        ComponentDisplay(component: EmailTextField(controller: controller1, width: fieldWidth)),
+        ComponentDisplay(component: PasswordTextField(controller: controller2, width: fieldWidth)),
       ],
     );
   }
