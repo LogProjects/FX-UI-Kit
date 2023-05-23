@@ -11,6 +11,7 @@ abstract class ThemeColor {
   static const Color White = Color.fromRGBO(255, 255, 255, 1.0);
   static const Color Grey = Color.fromRGBO(226, 232, 240, 1.0);
   static const Color DarkGrey = Color.fromRGBO(100, 116, 139, 1.0);
+  static const Color InactiveColor = Color(0xFFE2E8F0);
 
   static const Color Primary = Color.fromRGBO(16, 23, 42, 1.0);
   static const Color ButtonDisabled = Color.fromRGBO(136, 139, 148, 1.0);
