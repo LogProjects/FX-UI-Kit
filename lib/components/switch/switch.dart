@@ -1,3 +1,4 @@
+import 'package:f_kit_x/resource/theme_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
@@ -44,8 +45,8 @@ class _SwitchToggleState extends State<SwitchToggle> {
           toggleSize: 20.0,
           borderRadius: 30.0,
           padding: 2.0,
-          activeColor: Colors.black,
-          inactiveColor: const Color(0xFFE2E8F0),
+          activeColor: ThemeColor.Primary,
+          inactiveColor: ThemeColor.InactiveColor,
           value: isToggled,
           onToggle:
               widget.onToggle != null ? _onValueChanged : (bool newValue) {},
