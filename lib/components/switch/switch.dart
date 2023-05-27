@@ -4,13 +4,11 @@ import 'package:flutter_switch/flutter_switch.dart';
 
 class SwitchToggle extends StatefulWidget {
   final bool isToggled;
-  final String label;
   final void Function(bool)? onToggle;
 
   const SwitchToggle({
     Key? key,
     this.isToggled = false,
-    required this.label,
     this.onToggle,
   }) : super(key: key);
 
@@ -51,12 +49,24 @@ class _SwitchToggleState extends State<SwitchToggle> {
           onToggle:
               widget.onToggle != null ? _onValueChanged : (bool newValue) {},
         ),
-        const SizedBox(width: 8),
-        Text(
-          widget.label,
-          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-        )
       ],
+    );
+  }
+}
+
+class LabelText extends StatelessWidget {
+  final String label;
+
+  const LabelText({
+    super.key,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      label,
+      style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
     );
   }
 }
