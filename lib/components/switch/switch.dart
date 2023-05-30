@@ -4,12 +4,12 @@ import 'package:flutter_switch/flutter_switch.dart';
 
 class SwitchToggle extends StatefulWidget {
   final bool isToggled;
-  final void Function(bool)? onToggle;
+  final void Function(bool) onToggle;
 
   const SwitchToggle({
     Key? key,
     this.isToggled = false,
-    this.onToggle,
+    required this.onToggle,
   }) : super(key: key);
 
   @override
@@ -27,9 +27,7 @@ class _SwitchToggleState extends State<SwitchToggle> {
 
   void _onValueChanged(bool newValue) {
     setState(() => isToggled = newValue);
-    if (widget.onToggle != null) {
-      widget.onToggle!(newValue);
-    }
+    widget.onToggle(newValue);
   }
 
   @override
@@ -46,8 +44,7 @@ class _SwitchToggleState extends State<SwitchToggle> {
           activeColor: ThemeColor.Primary,
           inactiveColor: ThemeColor.InactiveColor,
           value: isToggled,
-          onToggle:
-              widget.onToggle != null ? _onValueChanged : (bool newValue) {},
+          onToggle: _onValueChanged,
         ),
       ],
     );
