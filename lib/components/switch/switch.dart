@@ -53,20 +53,3 @@ class _SwitchToggleState extends State<SwitchToggle> {
     );
   }
 }
-
-class LabelText extends StatelessWidget {
-  final String label;
-
-  const LabelText({
-    super.key,
-    required this.label,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      label,
-      style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-    );
-  }
-}

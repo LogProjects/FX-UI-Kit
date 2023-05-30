@@ -15,18 +15,6 @@ class SwitchComponents extends StatelessWidget {
             onToggle: (_) {},
           ),
         ),
-        ComponentDisplay(
-          component: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SwitchToggle(
-                onToggle: (_) {},
-              ),
-              const SizedBox(width: 8.0),
-              const LabelText(label: 'Airplane Mode'),
-            ],
-          ),
-        ),
       ],
     );
   }
