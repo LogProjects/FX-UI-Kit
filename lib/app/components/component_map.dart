@@ -3,6 +3,7 @@
 import 'package:f_kit_x/app/components/elements/buttons.dart';
 import 'package:f_kit_x/app/components/elements/calendar_components.dart';
 import 'package:f_kit_x/app/components/elements/checkbox_components.dart';
+import 'package:f_kit_x/app/components/elements/progress_components.dart';
 import 'package:flutter/material.dart';
 
 import 'elements/textfields_components.dart';
@@ -22,12 +23,14 @@ abstract class Elements {
   static const String CHECKBOX = "Checkbox";
   static const String TEXT_FIELD = "TextField";
   static const String CALENDAR = "Calendar";
+  static const String PROGRESS = "Progress";
 
   static List<UiElement> ComponentList = [
     const UiElement(name: BUTTON, componentList: Buttons()),
     const UiElement(name: CHECKBOX, componentList: CheckboxComponents()),
     UiElement(name: TEXT_FIELD, componentList: TextFieldComponents()),
     const UiElement(name: CALENDAR, componentList: CalendarComponents()),
+    const UiElement(name: PROGRESS, componentList: ProgressComponents()),
     UiElement(name: "lightGreen", componentList: Container(color: Colors.lightGreen)),
     UiElement(name: "amberAccent", componentList: Container(color: Colors.amberAccent)),
     UiElement(name: "amberAccent", componentList: Container(color: Colors.amber)),
